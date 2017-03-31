@@ -27,7 +27,7 @@
 
         </tbody>
     </table>
-
+    <span>TOTAL</span>
     <input type="text" value="0" id="totalM">
     
 </body>
@@ -75,14 +75,15 @@
                     this.valores.push(valor);
                 } else {
                     this.pedidos.splice(this.itemEditar, 1, produto.trim());
-                    this.valores.splice(this.itemEditar, 1);
+                    //this.valores[item] = valor;
+                    this.valores.splice(this.itemEditar, 1, valor);
                     this.itemEditar = -1;
                 }
-                this.listarTodos();
-                this.novo();
+                this.listarTodos();                
+                
             }
             this.total();
-            
+            this.novo();
         };
 
         this.editar = function (item) {
@@ -106,6 +107,7 @@
             var elValor = document.getElementById("add-valor");
             elValor.value = '';
             el.value = '';
+            //this.total();
         };
 
         this.excluir = function (item) {
